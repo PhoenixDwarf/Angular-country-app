@@ -2,12 +2,12 @@
   <input
     type="text"
     class="input input-border mr-2 w-56"
-    placeholder="Buscar por capital"
+    [placeholder]="placeHolder()"
     autofocus
     #txtSearch
-    (keyup.enter)="emitValue(txtSearch.value)"
+    (keyup.enter)="onSearch.emit(txtSearch.value)"
   />
-  <button class="btn btn-primary" (click)="emitValue(txtSearch.value)">
+  <button class="btn btn-primary" (click)="onSearch.emit(txtSearch.value)">
     Buscar
   </button>
 </section>
