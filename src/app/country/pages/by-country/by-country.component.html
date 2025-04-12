@@ -2,6 +2,7 @@
   placeHolder="Buscar por nombre de mi pais"
   (search)="query.set($event)"
   [debounceTime]="300"
+  [initialValue]="query()"
 />
 
 <country-list
