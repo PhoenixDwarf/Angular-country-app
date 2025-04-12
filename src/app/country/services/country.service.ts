@@ -83,4 +83,21 @@ export class CountryService {
       })
     );
   }
+
+  searchByRegion(region: string): Observable<Country[]> {
+    if (this.queryCacheCountry.has(region)) {
+      console.log('Cache hit for region search');
+      return of(this.queryCacheCountry.get(region) ?? []);
+    }
+    console.log('No cache, fetching from API');
+
+    return this.http.get<RESTCountry[]>(`${API_URL}/region/${region}`).pipe(
+      map(CountryMapper.mapRestCountryArrayToCountryArray),
+      tap((countries) => this.queryCacheCountry.set(region, countries)),
+      catchError((err) => {
+        console.log('Error fetching ', err);
+        return throwError(() => new Error(`No se encontro un pais`));
+      })
+    );
+  }
 }

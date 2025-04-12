@@ -1,1 +1,18 @@
-<country-list [countries]="[]" />
+<section class="flex gap-2 flex-wrap">
+  @for(region of regions; track region) {
+  <button
+    class="btn btn-soft"
+    [ngClass]="{ 'btn-active': selectedRegion() === region }"
+    (click)="selectRegion(region)"
+  >
+    {{ region }}
+  </button>
+  }
+</section>
+
+<country-list
+  [countries]="regionResource.value() ?? []"
+  [errorMessage]="regionResource.error()"
+  [isEmpty]="regionResource.value()?.length === 0"
+  [isLoading]="regionResource.isLoading()"
+/>
