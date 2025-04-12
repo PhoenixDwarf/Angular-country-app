@@ -12,6 +12,8 @@ export class CountryMapper {
         ? country.capital.join(',')
         : 'No tiene capital',
       population: country.population,
+      region: country.region,
+      subregion: country.subregion ?? 'No tiene subregion',
     };
   }
 
