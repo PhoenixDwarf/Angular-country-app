@@ -1,4 +1,4 @@
-import { Component, inject, linkedSignal, signal } from '@angular/core';
+import { Component, inject, linkedSignal } from '@angular/core';
 import { ListComponent } from '../../components/list/list.component';
 import { Region } from '../../types/regiones.type';
 import { NgClass } from '@angular/common';
