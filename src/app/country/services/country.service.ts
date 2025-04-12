@@ -96,7 +96,7 @@ export class CountryService {
       tap((countries) => this.queryCacheCountry.set(region, countries)),
       catchError((err) => {
         console.log('Error fetching ', err);
-        return throwError(() => new Error(`No se encontro un pais`));
+        return throwError(() => new Error(`No se encontro la region`));
       })
     );
   }
